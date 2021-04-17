@@ -1,4 +1,5 @@
 import sys
+import math
 
 class Node:
     def __init__(self, tokens, depth, parent):
@@ -6,21 +7,41 @@ class Node:
         self.depth = depth
         self.parent = parent
     
+    def get_children(self):
+        # Return children
+        return None
 
-
-def alphabeta(node, depth):
-    return None
-
-
-def max_value(node, depth, alpha, beta):
-    return None
-
-def min_value(node, depth, alpha, beta):
-    return None
+    def is_terminal(self):
+        return len(self.get_children()) == 0
 
 
 
+def alphabeta(node, depth, alpha, beta, maximizingPlayer):
+    if depth == 0 or node.is_terminal():
+        # Return score
+        return None
 
+    # maxmizingPlayer always wants to return max value
+    if maximizingPlayer:
+        maxEval = -math.inf
+        for child in node.get_children():
+            eval = alphabeta(child, depth - 1, alpha, beta, False)
+            maxEval = max(maxEval, eval)
+            alpha = max(alpha, eval)
+            if beta <= alpha:
+                break
+        return maxEval
+
+    # minimizingPlayer always wants to return min value
+    else:
+        minEval = math.inf
+        for child in node.get_children():
+            eval = alphabeta(child, depth - 1, alpha, beta, True)
+            minEval = min(minEval, eval)
+            beta = min(beta, eval)
+            if beta <= alpha:
+                breakpoint
+        return minEval
 
 
 
