@@ -125,7 +125,7 @@ if __name__ == '__main__':
             smallest_move = child.token
     
     a = open("PNT_analysis.txt", "w")
-    a.write("\n\ninput: "+str(sys.argv))
+    a.write("input: "+str(sys.argv))
     a.write("\nMove: "+ str(smallest_move))
     a.write("\nValue: "+str(score))
     a.write("\nNumber of Nodes Visited: " + str(ab.visited_nodes_count))
