@@ -1,0 +1,9 @@
+
+
+input: ['app.py', '7', '3', '1', '4', '2', '3']
+Move: 6
+Value: 1.0
+Number of Nodes Visited: 3
+Number of Nodes Evaluated: 1
+Max Depth Reached: 2
+Avg Effective Branching Factor: 1.0
